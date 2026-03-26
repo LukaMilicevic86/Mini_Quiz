@@ -39,3 +39,44 @@
         Button:
             text: 'Next'
             on_press: root.next1()
+
+<SecondScreen>
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        Label:
+            text: "Which of these are DC heroes?"
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Batman"
+            CheckBox:
+                id: batman2
+                on_active: root.chckbox.click2(self, self.active, "Batman")
+            
+            Label:
+                text: "Thor"
+            CheckBox:
+                id: thor2
+                on_active: root.chckbox.click2(self, self.active, "Thor")
+            
+            Label:
+                text: "Hulk"
+            CheckBox:
+                id: hulk2
+                on_active: root.chckbox.click2(self, self.active, "Hulk")
+            
+            Label:
+                text: "Superman"
+            CheckBox:
+                id: superman2
+                on_active: root.chckbox.click2(self, self.active, "Superman")
+        
+        Label:
+            text:''
+            id: display2
+        
+        Button:
+            text: 'Next'
+            on_press: root.next2()            
