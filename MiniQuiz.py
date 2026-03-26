@@ -22,7 +22,7 @@ class FirstScreen(Widget):
         for element in self.answers:
             if element in self.correct_answers:
                 MainApp.points += 1
-        MainApp.ScrnMngr.current = "Second screen"
+        MainApp.ScrnMngr.current = "second screen"
 
 
 class SecondScreen(Widget):
@@ -41,10 +41,21 @@ class SecondScreen(Widget):
         for element in self.answers:
             if element in self.correct_answers:
                 MainApp.points += 1
-        MainApp.ScrnMngr.current = "Results"
+        MainApp.results.ids.results.text = "Your points: " + str(MainApp.points) + "/4"        
+        MainApp.ScrnMngr.current = "results"
 
 
+class Results(Widget):
+    def restart(self):
+        MainApp.points = 0
 
+        for screen in MainApp.root.screens:
+            for child in screen.children:
+
+                for k, v in child.ids.items():
+                    v.active = False
+
+        MainApp.ScrnMngr.current = "first screen"
 
 
 class MainApp(App):
@@ -62,7 +73,10 @@ class MainApp(App):
         sscreen.add_widget(self.SecondScreen)
         self.ScrnMngr.add_widget(sscreen)
 
-
+        self.results = Results()
+        rscreen = Screen(name = "results")
+        rscreen.add_widget(self.results)
+        self.ScrnMngr.add_widget(rscreen)
 
         return self.ScrnMngr
 
