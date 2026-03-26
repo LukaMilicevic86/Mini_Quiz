@@ -17,7 +17,12 @@ class FirstScreen(Widget):
         else:
             self.answers.remove(selected)
             self.ids.display1.text = f"Your selection: {self.answers}"
-            
+    
+    def next1(self):
+        for element in self.answers:
+            if element in self.correct_answers:
+                MainApp.points += 1
+        MainApp.ScrnMngr.current = "Second screen"
 
 
 class SecondScreen(Widget):
@@ -32,6 +37,11 @@ class SecondScreen(Widget):
             self.answers.remove(selected)
             self.ids.display2.text = f"Your selection: {self.answers}"
 
+    def next2(self):
+        for element in self.answers:
+            if element in self.correct_answers:
+                MainApp.points += 1
+        MainApp.ScrnMngr.current = "Results"
 
 
 
