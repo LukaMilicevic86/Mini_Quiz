@@ -1,0 +1,41 @@
+
+<FirstScreen>
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        Label:
+            text: "Which of these are Marvel heroes?"
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Conan"
+            CheckBox:
+                id: conan1
+                on_active: root.chckbox.click1(self, self.active, "Conan")
+            
+            Label:
+                text: "Thor"
+            CheckBox:
+                id: thor1
+                on_active: root.chckbox.click1(self, self.active, "Thor")
+            
+            Label:
+                text: "Hulk"
+            CheckBox:
+                id: hulk1
+                on_active: root.chckbox.click1(self, self.active, "Hulk")
+            
+            Label:
+                text: "Superman"
+            CheckBox:
+                id: superman1
+                on_active: root.chckbox.click1(self, self.active, "Superman")
+        
+        Label:
+            text:''
+            id: display1
+        
+        Button:
+            text: 'Next'
+            on_press: root.next1()
