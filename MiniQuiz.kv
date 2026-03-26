@@ -12,25 +12,25 @@
                 text: "Conan"
             CheckBox:
                 id: conan1
-                on_active: root.chckbox.click1(self, self.active, "Conan")
+                on_active: root.chckbox_click1(self, self.active, "Conan")
             
             Label:
                 text: "Thor"
             CheckBox:
                 id: thor1
-                on_active: root.chckbox.click1(self, self.active, "Thor")
+                on_active: root.chckbox_click1(self, self.active, "Thor")
             
             Label:
                 text: "Hulk"
             CheckBox:
                 id: hulk1
-                on_active: root.chckbox.click1(self, self.active, "Hulk")
+                on_active: root.chckbox_click1(self, self.active, "Hulk")
             
             Label:
                 text: "Superman"
             CheckBox:
                 id: superman1
-                on_active: root.chckbox.click1(self, self.active, "Superman")
+                on_active: root.chckbox_click1(self, self.active, "Superman")
         
         Label:
             text:''
@@ -53,25 +53,25 @@
                 text: "Batman"
             CheckBox:
                 id: batman2
-                on_active: root.chckbox.click2(self, self.active, "Batman")
+                on_active: root.chckbox_click2(self, self.active, "Batman")
             
             Label:
                 text: "Thor"
             CheckBox:
                 id: thor2
-                on_active: root.chckbox.click2(self, self.active, "Thor")
+                on_active: root.chckbox_click2(self, self.active, "Thor")
             
             Label:
                 text: "Hulk"
             CheckBox:
                 id: hulk2
-                on_active: root.chckbox.click2(self, self.active, "Hulk")
+                on_active: root.chckbox_click2(self, self.active, "Hulk")
             
             Label:
                 text: "Superman"
             CheckBox:
                 id: superman2
-                on_active: root.chckbox.click2(self, self.active, "Superman")
+                on_active: root.chckbox_click2(self, self.active, "Superman")
         
         Label:
             text:''
@@ -92,6 +92,12 @@
             font_size: root.height*0.05
             size: root.width*0.2, root.height*0.5
             pos: root.width*0.4, root.height*0.5
-            on_press: root.restart()
+
+        Button:
+            text: 'Restart'
+            font_size: root.height*0.05
+            size: root.width*0.2, root.height*0.5
+            pos: root.width*0.4, root.height*0.5
+            on_press:root.restart()    
 
             
