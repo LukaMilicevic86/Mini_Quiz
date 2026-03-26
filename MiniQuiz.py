@@ -31,4 +31,30 @@ class SecondScreen(Widget):
         else:
             self.answers.remove(selected)
             self.ids.display2.text = f"Your selection: {self.answers}"
-    
+
+
+
+
+
+
+class MainApp(App):
+    points = 0
+    def build(self):
+        self.ScrnMngr = ScreenManager()
+
+        self.FirstScreen = FirstScreen()
+        fscreen = Screen(name = "first screen")
+        fscreen.add_widget(self.FirstScreen)
+        self.ScrnMngr.add_widget(fscreen)
+
+        self.SecondScreen = SecondScreen()
+        sscreen = Screen(name = "second screen")
+        sscreen.add_widget(self.SecondScreen)
+        self.ScrnMngr.add_widget(sscreen)
+
+
+
+        return self.ScrnMngr
+
+MainApp= MainApp()        
+MainApp.run()
