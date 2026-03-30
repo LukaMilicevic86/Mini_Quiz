@@ -6,6 +6,8 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 
 Builder.load_file("MiniQuiz.kv")
 
+#Create a class for the first screen that contains the function for its checkboxes:
+
 class FirstScreen(Widget):
     answers = []
     correct_answers = ["Thor", "Hulk"]
@@ -17,13 +19,16 @@ class FirstScreen(Widget):
         else:
             self.answers.remove(selected)
             self.ids.display1.text = f"Your selection: {self.answers}"
-    
+
+#Function for keeping the score and transitioning into the second window:
+
     def next1(self):
         for element in self.answers:
             if element in self.correct_answers:
                 MainApp.points += 1
         MainApp.ScrnMngr.current = "second screen"
 
+#Create a class for the second screen that contains the function for its checkboxes:
 
 class SecondScreen(Widget):
     answers = []
@@ -37,6 +42,8 @@ class SecondScreen(Widget):
             self.answers.remove(selected)
             self.ids.display2.text = f"Your selection: {self.answers}"
 
+#Function for keeping the score and transitioning into the final window:
+
     def next2(self):
         for element in self.answers:
             if element in self.correct_answers:
@@ -44,6 +51,8 @@ class SecondScreen(Widget):
         MainApp.results.ids.results.text = "Your points: " + str(MainApp.points) + "/4"        
         MainApp.ScrnMngr.current = "results"
 
+
+#Create the class for the third window wuth the function to reset the score, uncheck all the ckeckboxes and return to the first screen
 
 class Results(Widget):
     def restart(self):
@@ -57,6 +66,8 @@ class Results(Widget):
 
         MainApp.ScrnMngr.current = "first screen"
 
+
+#Create the main app class which returns a screen manager, setting it as a root, and adds instances of the classes above into it as widgets
 
 class MainApp(App):
     points = 0
